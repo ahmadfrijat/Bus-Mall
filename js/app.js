@@ -10,8 +10,13 @@ var product1 = document.getElementById('product1');
 var product2 = document.getElementById('product2');
 var product3 = document.getElementById('product3');
 
+//Product names for chart label
+var productChartName =[];
+//product clicks for chart label
+var productChartClick =[];
 
-//access the image section; because of the bubbling, it affects the individual images too. 
+
+//access the image section; because of the bubbling, it affects the individual images too.
 var picturesFigure = document.getElementById('picturesFigure');
 
 //results element
@@ -27,6 +32,7 @@ function Product (filepath, name) {
   this.shown = 0;
   this.clicks = 0;
   Product.allProducts.push(this);
+  productChartName.push(this.name);
 }
 
 
@@ -70,7 +76,7 @@ function randomProduct() {
     randomProduct1= Math.floor(Math.random()* Product.allProducts.length);
     randomProduct2= Math.floor(Math.random()* Product.allProducts.length);
     randomProduct3= Math.floor(Math.random()* Product.allProducts.length);
-    console.log('duplicate was caught');
+    //console.log('duplicate was caught');
   }
 
   //push images to DOM
@@ -91,6 +97,7 @@ function randomProduct() {
   Product.lastShown.push(randomProduct2);
   Product.lastShown.push(randomProduct3);
 }
+
 function productClick(event){
   Product.totalClicks++;
   //use for loop to find image being clicked
@@ -102,6 +109,8 @@ function productClick(event){
   if (Product.totalClicks > 24){
     picturesFigure.removeEventListener('click', productClick);
     showResults();
+    updateClicks();
+    renderChart();
   }else{
     randomProduct();
   }
@@ -114,8 +123,39 @@ function showResults(){
     ulEl.appendChild(liEl);
   }
 }
-
+function updateClicks(){
+  for(var i in Product.allProducts){
+    // productChartClick.push(Product.allProducts[i].clicks);
+    productChartClick[i] = Product.allProducts[i].clicks;
+  }
+}
 
 picturesFigure.addEventListener('click', productClick);
 
 randomProduct();
+
+function renderChart() {
+//access the canvas element from the DOM
+  var ctx = document.getElementById('productChart').getContext('2d');
+  var arrayOfColors = ['red','orange','yellow','green','blue','purple','pink','red','orange','yellow','green','blue', 'purple','pink','red','orange','yellow','green','blue','purple','pink','red','orange'];
+  new Chart(ctx, {
+    type: 'bar',
+    data:{
+      labels: productChartName,
+      datasets: [{
+        label: 'Clicks per Product',
+        data: productChartClick,
+        backgroundColor: arrayOfColors,
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      }
+    }
+  });
+}
