@@ -1,0 +1,50 @@
+
+*{
+    box-sizing: border-box;
+  }
+  html body{
+    margin: 20px;
+    background-color: rgb(134, 143, 226);
+  }
+ 
+  main {
+    width: 100%;
+  }
+  main div {
+    height: 100%;
+    width: 20%;
+    float: left;
+  }
+  main span {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  main span figure {
+    display: inline-block;
+    padding: 5px;
+    width: 100%;
+    align-content: center;
+    margin-bottom: 5px;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  figure img{
+    max-width:32%;
+    max-height: 200px;
+    border: 2px solid black;
+    margin: 1%;
+    vertical-align: middle;
+    
+  
+  }
+  #results {
+    font-size: 25px;
+    list-style-type: disc;
+    width: 100%;
+  }
+  
