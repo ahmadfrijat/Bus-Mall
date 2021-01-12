@@ -1,4 +1,11 @@
 'use strict'
+//========================================================================================================================
+// VAIRIABLS AND DATA 
+//=========================================================================================================================
+
+
+
+
 var imagePaths  = [
   "bag.jpg",
   "banana.jpg",
@@ -28,7 +35,7 @@ var rightImage = document.querySelector("#right");
 var imageSection = document.querySelector("#imageSection");
 var showing = document.querySelector("#showing");
 Product.all = [];
-
+// creat constructor function to the bus mall project:
 function Product(path) {
   var pathArr = path.split(".");
   this.name = pathArr[0];
@@ -42,6 +49,9 @@ function Product(path) {
 for (var i = 0; i < imagePaths .length; i++) {
   new Product(imagePaths [i]);
 }
+//========================================================================================================================
+// FUNCTIONALITY
+//=========================================================================================================================
 var previousIndexs = [];
 function getUniqueIndex() {
   var index = randomNumber(0, Product.all.length - 1);
