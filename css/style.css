@@ -7,47 +7,27 @@ html body{
   background-color: rgb(152, 159, 221);
 }
 
-main {
-  width: 100%;
-}
-main div {
-  height: 100%;
-  width: 20%;
-  float: left;
-}
-main span {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-}
-main span figure {
-  display: inline-block;
-  padding: 5px;
-  width: 50%;
-  align-content: center;
-  margin-bottom: 5px;
-  overflow: hidden;
-  height: 100%;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+#left{
+  width: 300px;
+  border: solid 2px blueviolet;
+  height: 300px;
   
-}
-figure img{
-  max-width:30%;
-  max-height: 200px;
-  border: 2px solid black;
-  margin: 1%;
-  vertical-align: middle;
-   
-
-}
-#results {
-  font-size: 15px;
-  list-style-type: disc;
-  width: 100%;
-  height: 200px;
-  overflow: scroll;
   
-}
+  }
+  #middle{
+      width: 300px;
+      border: solid 2px blueviolet;
+      height: 300px;
+      margin-left: 7px;
+  }
+      #right{
+          width: 300px;
+          border: solid 2px blueviolet;
+          height: 300px;
+          margin-left: 7px;
+      }
+          #imageSection{
+  text-align: center;
+  margin-top: 200px;
+          }
+        
